@@ -1,0 +1,3 @@
+html { width: 100%; height: 100%; }
+body { width: 100%; height: 100%; margin: 0px; overflow: hidden; background-color: #222222;}
+#header {position: fixed; width: 100%; height: 70px; background-color: #00bdd1; line-height: 70px; text-align: left; padding-left: 30px; color: white; font-size: 1.5em; font-family: Roboto; z-index: 1;}

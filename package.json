@@ -1,0 +1,26 @@
+{
+  "name": "pubnub-demo",
+  "version": "1.0.0",
+  "description": "This is the completed code as shown in the Lexalytics PubNub Block webinar. We use the Lexalytics block to perform real time sentiment analysis of incoming Tweets with a given hashtag.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pubnub": "^4.5.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LexalyticsInc/pubnub-demo.git"
+  },
+  "author": "Lexalytics",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LexalyticsInc/pubnub-demo/issues"
+  },
+  "homepage": "https://github.com/LexalyticsInc/pubnub-demo#readme"
+}
