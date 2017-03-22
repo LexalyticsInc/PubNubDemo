@@ -6,8 +6,11 @@
 //
 //  Imports
 //
-var PubNub = require('pubnub'),
-    express = require('express'),
+
+//
+//  IMPORT PUBNUB
+//
+var express = require('express'),
     http = require('http'),
     twitter = require('twitter'),
     config = require('./config');
@@ -36,27 +39,20 @@ var server = http.createServer(app).listen(port, function() {
 //
 
 //  Initialize
-var pubnub = new PubNub(config.pubnub);
+
+//
+//  INITIALIZE PUBNUB
+//
 
 
 // Ping the Lexalytics Block
 setInterval(function() {
     console.log("Pinging the Lexalytics Block");
-    pubnub.publish(
-        {
-            message: {},
-            channel: 'lexalytics-channel',
-            sendByPost: false, // true to send via post
-            storeInHistory: false //override default storage options
-        },
-        function (status, response) {
-            if (status.statusCode == 200) {
-                console.log("   Publish Success");
-            } else {
-                console.log("   Publish Failure");
-            }
-        }
-    );
+
+    //
+    //  INSERT PUBLISH TO LEXALYTICS BLOCK
+    //
+
 }, 5000);
 
 
@@ -74,22 +70,10 @@ twit.stream('statuses/filter',{ track: '#lexdemo'}, function(stream){
     stream.on('data', function(data) {
         console.log("Received a Tweet: ");
         if (data['user'] !== undefined) {
-            pubnub.publish({
-                    message: { "docs": [{"text": data['text']}] },
-                    channel: 'lexalytics-channel',
-                    sendByPost: false, // true to send via post
-                    storeInHistory: false, //override default storage options
-                    meta: { id_str: data.id_str,  screen_name: data.user.screen_name} // publish extra meta with the request
-                },
-                function (status, response) {
-                    if (status.statusCode == 200) {
-                        console.log("   Publish Success");
-                        console.log("   Published Message Text: " + data['text']);
-                    } else {
-                        console.log("   Publish Failure");
-                    }
-                }
-            );
+
+            //
+            //  INSERT PUBLISH TO LEXALYTICS BLOCK
+            //
 
         }
 

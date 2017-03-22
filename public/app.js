@@ -297,23 +297,7 @@ function processResults(message) {
 //  PubNub
 //
 
-var pubnub = new PubNub({
-    publishKey: "",
-    subscribeKey: ""
-});
 
-
-pubnub.addListener({
-    status: function(statusEvent) {
-        if (statusEvent.category === "PNConnectedCategory") {
-            console.log("Connected");
-        }
-    },
-    message: function(message) {
-        processResults(message);
-    }
-});
-
-pubnub.subscribe({
-    channels: ['semoutput']
-});
+//
+//  ADD PUBNUB CLIENTSIDE CODE
+//
